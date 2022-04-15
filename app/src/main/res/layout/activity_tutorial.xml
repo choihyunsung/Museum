@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="activity"
+            type="kr.block.retrofitopenapi.feature.intro.TutorialActivity" />
+
+        <variable
+            name="isStart"
+            type="Boolean" />
+
+        <variable
+            name="isEnd"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="10dp"
+        tools:context=".feature.intro.TutorialActivity">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_skip"
+            style="@style/CommonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->activity.onSkipPage()}"
+            android:text="@string/SkipText"
+            android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/tutorial_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toTopOf="@id/flow_bottom_view"
+            app:layout_constraintTop_toBottomOf="@id/btn_skip" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow_bottom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="btn_prev,indicator,btn_next"
+            app:flow_horizontalGap="10dp"
+            app:flow_horizontalStyle="packed"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_prev"
+            style="@style/CommonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->activity.onPrevPage()}"
+            android:text="@string/PrevText"
+            android:visibility="@{isStart? View.INVISIBLE : View.VISIBLE}" />
+
+        <kr.block.retrofitopenapi.feature.common.view.PagerIndicatorView
+            android:id="@+id/indicator"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}" />
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            style="@style/CommonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->activity.onNextPage()}"
+            android:text="@string/NextText"
+            android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}" />
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_start"
+            style="@style/CommonButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{()->activity.moveToMain()}"
+            android:text="@string/StartText"
+            android:visibility="@{isEnd? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/flow_bottom_view"
+            app:layout_constraintEnd_toEndOf="@id/flow_bottom_view"
+            app:layout_constraintStart_toStartOf="@id/indicator"
+            app:layout_constraintTop_toTopOf="@id/flow_bottom_view"
+            tools:visibility="invisible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,12 @@
+<resources>
+    <!--Title-->
+    <string name="app_name">모두의 도감</string>
+    <!--Title-->
+
+    <!--Button-->
+    <string name="PrevText">이전</string>
+    <string name="NextText">다음</string>
+    <string name="StartText">시작하기</string>
+    <string name="SkipText">건너뛰기</string>
+    <!--Button-->
+</resources>
