@@ -7,6 +7,8 @@
 
         <import type="android.view.View" />
 
+        <import type="kr.block.retrofitopenapi.feature.intro.TutorialActivity.PageMovement" />
+
         <variable
             name="activity"
             type="kr.block.retrofitopenapi.feature.intro.TutorialActivity" />
@@ -33,7 +35,7 @@
             style="@style/CommonButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->activity.onSkipPage()}"
+            android:onClick="@{()->activity.onPageMove(PageMovement.SKIP)}"
             android:text="@string/SkipText"
             android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +64,7 @@
             style="@style/CommonButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->activity.onPrevPage()}"
+            android:onClick="@{()->activity.onPageMove(PageMovement.PREV)}"
             android:text="@string/PrevText"
             android:visibility="@{isStart? View.INVISIBLE : View.VISIBLE}" />
 
@@ -78,7 +80,7 @@
             style="@style/CommonButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->activity.onNextPage()}"
+            android:onClick="@{()->activity.onPageMove(PageMovement.NEXT)}"
             android:text="@string/NextText"
             android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}" />
         />

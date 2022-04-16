@@ -2,7 +2,6 @@ package kr.block.retrofitopenapi.feature.intro
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.KeyEvent
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -13,11 +12,20 @@ import kr.block.retrofitopenapi.feature.common.activity.BaseActivity
 import kr.block.retrofitopenapi.feature.intro.adapter.TutorialAdapter
 import kr.block.retrofitopenapi.feature.intro.adapter.item.TutorialData
 import kr.block.retrofitopenapi.feature.main.MainActivity
-import timber.log.Timber
-import java.util.*
 
 class TutorialActivity : BaseActivity<ActivityTutorialBinding>(R.layout.activity_tutorial) {
     lateinit var viewModel: TutorialViewModel
+
+    init {
+        backKeyGuard = true
+    }
+
+    enum class PageMovement {
+        NEXT, // 다음
+        PREV, // 이전
+        SKIP // 건너뛰기
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(mBinder) {
@@ -35,35 +43,25 @@ class TutorialActivity : BaseActivity<ActivityTutorialBinding>(R.layout.activity
         }
     }
 
-    fun onNextPage() {
+    fun onPageMove(pageMove: PageMovement) {
         mBinder.tutorialPager.run {
-            if (currentItem < adapter?.itemCount!!) currentItem += 1
-        }
-    }
-
-    fun onPrevPage() {
-        mBinder.tutorialPager.run {
-            if (currentItem > 0) currentItem -= 1
-        }
-    }
-
-    fun onSkipPage() {
-        mBinder.tutorialPager.run {
-            currentItem = adapter?.itemCount!!
+            when (pageMove) {
+                PageMovement.NEXT -> {
+                    if (currentItem < adapter?.itemCount!!) currentItem += 1
+                }
+                PageMovement.PREV -> {
+                    if (currentItem > 0) currentItem -= 1
+                }
+                PageMovement.SKIP -> {
+                    currentItem = adapter?.itemCount!!
+                }
+            }
         }
     }
 
     fun moveToMain() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
-    }
-
-    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
-        when(keyCode) {
-            KeyEvent.KEYCODE_DPAD_RIGHT -> onNextPage()
-            KeyEvent.KEYCODE_DPAD_LEFT -> onPrevPage()
-        }
-        return super.onKeyUp(keyCode, event)
     }
 
     private val onPagerCallback = object : ViewPager2.OnPageChangeCallback() {
