@@ -11,6 +11,9 @@ class IntroActivity : BaseActivity<ActivityIntroBinding>(R.layout.activity_intro
     companion object {
         const val DELAYED = 2000L
     }
+    init {
+        backKeyGuard = true
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Handler(mainLooper).postDelayed({
