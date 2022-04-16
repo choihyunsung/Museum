@@ -6,7 +6,6 @@
     <data>
 
         <import type="android.view.View" />
-
         <import type="kr.block.retrofitopenapi.feature.intro.TutorialActivity.PageMovement" />
 
         <variable
@@ -20,6 +19,10 @@
         <variable
             name="isEnd"
             type="Boolean" />
+
+        <variable
+            name="pageCount"
+            type="Integer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,15 +43,26 @@
             android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        />
+
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/tutorial_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:overScrollMode="never"
             app:layout_constraintBottom_toTopOf="@id/flow_bottom_view"
             app:layout_constraintTop_toBottomOf="@id/btn_skip" />
+
+        <TextView
+            android:id="@+id/tv_pager_count"
+            style="@style/sText"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            tools:text="1"
+            android:text="@{String.valueOf(pageCount)}"
+            android:background="@drawable/circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <androidx.constraintlayout.helper.widget.Flow
             android:id="@+id/flow_bottom_view"
@@ -73,7 +87,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}" />
-        />
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_next"
@@ -83,7 +97,7 @@
             android:onClick="@{()->activity.onPageMove(PageMovement.NEXT)}"
             android:text="@string/NextText"
             android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}" />
-        />
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_start"

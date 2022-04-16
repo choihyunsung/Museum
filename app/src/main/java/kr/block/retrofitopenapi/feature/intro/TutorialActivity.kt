@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.ActivityTutorialBinding
@@ -31,15 +32,22 @@ class TutorialActivity : BaseActivity<ActivityTutorialBinding>(R.layout.activity
         with(mBinder) {
             activity = this@TutorialActivity
             viewModel = ViewModelProvider(this@TutorialActivity)[TutorialViewModel::class.java]
-            tutorialPager.adapter = TutorialAdapter(getTutorialData())
-            tutorialPager.registerOnPageChangeCallback(onPagerCallback)
-            indicator.setViewPager(tutorialPager)
-            indicator.moveToClickDotPos = true
-            viewModel.pagerIndex.observe(this@TutorialActivity) {
-                isStart = (it <= 0)
-                isEnd = (it >= indicator.pager!!.adapter!!.itemCount - 1)
+            tutorialPager.run {
+                (getChildAt(0) as RecyclerView).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+                adapter = TutorialAdapter(getTutorialData())
+                registerOnPageChangeCallback(onPagerCallback)
             }
-
+            indicator.run {
+                setViewPager(tutorialPager)
+                moveToClickDotPos = true
+            }
+            viewModel.run {
+                pagerIndex.observe(this@TutorialActivity) {
+                    isStart = (it <= 0)
+                    isEnd = (it >= indicator.pager!!.adapter!!.itemCount - 1)
+                    pageCount = it+1
+                }
+            }
         }
     }
 
