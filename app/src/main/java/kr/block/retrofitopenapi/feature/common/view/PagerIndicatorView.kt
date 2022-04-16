@@ -23,7 +23,7 @@ class PagerIndicatorView @JvmOverloads constructor(
     var moveToClickDotPos: Boolean = false
 
     init {
-        orientation = height
+        orientation = HORIZONTAL
         gravity = Gravity.CENTER
     }
 
@@ -32,39 +32,38 @@ class PagerIndicatorView @JvmOverloads constructor(
         if (childCount < 0) {
             removeAllViews()
         }
-
-        with(pager) {
-            val dotCount =
-                (adapter?.itemCount!!.minus(1)) //view child count start 0/ list count start 1
-            for (x in 0..dotCount) {
-                val dot = ImageView(context)
-                val param = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
-                val dpMargin = DisplayUtils.pxToDp(20)
-                param.setMargins(dpMargin, 0, dpMargin, 0)
-                param.weight = 1F
-                dot.setOnClickListener(this@PagerIndicatorView)
-                dot.layoutParams = param
-                dot.setImageResource(R.drawable.indicator_non)
-                this@PagerIndicatorView.addView(dot)
-            }
+            with(pager) {
+                val dotCount =
+                    (adapter?.itemCount!!.minus(1)) //view child count start 0/ list count start 1
+                for (x in 0..dotCount) {
+                    val dot = ImageView(context)
+                    val param = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
+                    val dpMargin = DisplayUtils.pxToDp(100)
+                    param.setMargins(dpMargin, 0, dpMargin, 0)
+                    param.weight = 1F
+                    dot.setOnClickListener(this@PagerIndicatorView)
+                    dot.layoutParams = param
+                    dot.setImageResource(R.drawable.indicator_non)
+                    this@PagerIndicatorView.addView(dot)
+                }
+            registerOnPageChangeCallback(onPagerCallback)
         }
-        pager.registerOnPageChangeCallback(onPagerCallback)
     }
 
     private val onPagerCallback = object : ViewPager2.OnPageChangeCallback() {
-        private var prevDot: ImageView? = null
+        private var prevItem: Int = 0
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
-            val posDot = getChildAt(position) as ImageView
-            posDot.run {
-                setImageResource(R.drawable.indicator_sel)
-                animate().scaleX(1.5F).start()
-            }
-            prevDot?.run {
+            val posItem: Int = position
+            with(getChildAt(prevItem) as ImageView) {
                 setImageResource(R.drawable.indicator_non)
                 animate().scaleX(1.0F).start()
             }
-            prevDot = posDot
+            with(getChildAt(posItem) as ImageView) {
+                setImageResource(R.drawable.indicator_sel)
+                animate().scaleX(1.5F).start()
+            }
+            prevItem = posItem
         }
     }
 
