@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{()->activity.onPageMove(PageMovement.SKIP)}"
-            android:text="@string/SkipText"
+            android:text="@string/skip_text"
             android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{()->activity.onPageMove(PageMovement.PREV)}"
-            android:text="@string/PrevText"
+            android:text="@string/prev_text"
             android:visibility="@{isStart? View.INVISIBLE : View.VISIBLE}" />
 
         <kr.block.retrofitopenapi.feature.common.view.PagerIndicatorView
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{()->activity.onPageMove(PageMovement.NEXT)}"
-            android:text="@string/NextText"
+            android:text="@string/next_text"
             android:visibility="@{isEnd? View.INVISIBLE : View.VISIBLE}" />
 
 
@@ -105,7 +105,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:onClick="@{()->activity.moveToMain()}"
-            android:text="@string/StartText"
+            android:text="@string/start_text"
             android:visibility="@{isEnd? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toBottomOf="@id/flow_bottom_view"
             app:layout_constraintEnd_toEndOf="@id/flow_bottom_view"

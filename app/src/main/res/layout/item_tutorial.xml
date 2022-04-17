@@ -19,7 +19,7 @@
 
         <TextView
             android:id="@+id/mainTitle"
-            style="@style/MainTitleStyle"
+            style="@style/text_style_tutorial_main_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/subTitle"
-            style="@style/SubTitleStyle"
+            style="@style/text_style_tutorial_sub_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
