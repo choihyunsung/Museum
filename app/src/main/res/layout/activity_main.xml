@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -13,9 +14,8 @@
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:openDrawer="end"
         android:fitsSystemWindows="true"
-        >
+        tools:openDrawer="end">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/rootView"
@@ -26,15 +26,35 @@
             <!--TitleBar-->
             <include
                 android:id="@+id/mainTitle"
-                layout="@layout/include_menu_title_bar" />
+                layout="@layout/include_menu_title_bar"
+                bind:menuIcon="@{@drawable/baseline_view_headline_black_36}"
+                bind:title="@{@string/main_title_string}" />
+            <!--TitleBar-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/container_drawer"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root_drawer_menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:layout_gravity="end"
-            />
+            >
+            <include
+                android:id="@+id/drawer_title"
+                layout="@layout/include_menu_title_bar"
+                bind:title="@{@string/menu_text}"
+                bind:menuIcon ="@{@drawable/baseline_close_black_36}"
+                />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/container_drawer"
+                android:name="kr.block.retrofitopenapi.feature.main.fragment.DrawerMenuFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                bind:layout_constraintTop_toBottomOf="@id/drawer_title"
+                bind:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

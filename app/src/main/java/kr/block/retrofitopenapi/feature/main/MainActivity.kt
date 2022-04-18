@@ -2,6 +2,7 @@ package kr.block.retrofitopenapi.feature.main
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import kr.block.retrofitopenapi.R
@@ -16,18 +17,21 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         with(mBinder) {
             initDrawerLayout(DrawerMenuFragment.newInstance())
-            mainTitle.ivMenuBtn.setOnClickListener {
-                if (drawerLayout.isDrawerOpen(GravityCompat.END)) drawerLayout.closeDrawer(
-                    GravityCompat.END
-                ) else drawerLayout.openDrawer(GravityCompat.END)
-            }
+            mainTitle.ivMenuBtn.setOnClickListener(drawerMenuClickListener)
+            drawerTitle.ivMenuBtn.setOnClickListener(drawerMenuClickListener)
         }
+    }
+
+    private val drawerMenuClickListener = View.OnClickListener {
+        if (mBinder.drawerLayout.isDrawerOpen(GravityCompat.END)) mBinder.drawerLayout.closeDrawer(
+            GravityCompat.END
+        ) else mBinder.drawerLayout.openDrawer(GravityCompat.END)
     }
 
     private fun initDrawerLayout(menuFragment: Fragment) {
         val loc: Pair<Int, Int> = DisplayUtils.displaySize(this@MainActivity)
         //Size Full
-        with(mBinder.containerDrawer) {
+        with(mBinder.rootDrawerMenu) {
             val param = this.layoutParams
             param.width = loc.first
             this.layoutParams = param

@@ -1,6 +1,7 @@
 <resources>
     <!--Title-->
     <string name="app_name">모두의 도감</string>
+    <string name="menu_text">메뉴</string>
     <!--Title-->
 
     <!--Button-->
