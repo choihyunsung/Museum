@@ -7,6 +7,5 @@ import timber.log.Timber
 class RoaApplication : Application() {
     init {
         Timber.plant(Timber.DebugTree())
-        DisplayUtils.getInstance(this)
     }
 }

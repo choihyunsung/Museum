@@ -32,20 +32,20 @@ class PagerIndicatorView @JvmOverloads constructor(
         if (childCount < 0) {
             removeAllViews()
         }
-            with(pager) {
-                val dotCount =
-                    (adapter?.itemCount!!.minus(1)) //view child count start 0/ list count start 1
-                for (x in 0..dotCount) {
-                    val dot = ImageView(context)
-                    val param = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
-                    val dpMargin = DisplayUtils.pxToDp(100)
-                    param.setMargins(dpMargin, 0, dpMargin, 0)
-                    param.weight = 1F
-                    dot.setOnClickListener(this@PagerIndicatorView)
-                    dot.layoutParams = param
-                    dot.setImageResource(R.drawable.indicator_non)
-                    this@PagerIndicatorView.addView(dot)
-                }
+        with(pager) {
+            val dotCount =
+                (adapter?.itemCount!!.minus(1)) //view child count start 0/ list count start 1
+            for (x in 0..dotCount) {
+                val dot = ImageView(context)
+                val param = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
+                val dpMargin = DisplayUtils.pxToDp(context, 100)
+                param.setMargins(dpMargin, 0, dpMargin, 0)
+                param.weight = 1F
+                dot.setOnClickListener(this@PagerIndicatorView)
+                dot.layoutParams = param
+                dot.setImageResource(R.drawable.indicator_non)
+                this@PagerIndicatorView.addView(dot)
+            }
             registerOnPageChangeCallback(onPagerCallback)
         }
     }
