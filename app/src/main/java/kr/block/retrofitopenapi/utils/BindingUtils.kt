@@ -1,5 +1,6 @@
 package kr.block.retrofitopenapi.utils
 
+import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 
@@ -8,5 +9,11 @@ object BindingUtils {
     @JvmStatic
     fun setSrc(iv: ImageView, res: Int) {
         iv.setImageResource(res)
+    }
+
+    @BindingAdapter("bind:srcDrawable")
+    @JvmStatic
+    fun setSrcDrawable(iv: ImageView, drawable: Drawable) {
+        iv.setImageDrawable(drawable)
     }
 }
