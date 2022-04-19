@@ -20,18 +20,19 @@
             name="isDiv"
             type="Boolean"
             android:value="false" />
+        
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rootView"
-        style="@style/view_style_menu_content">
+        style="@style/view_style_menu_content"
+        >
 
         <TextView
             android:id="@+id/title"
             style="@style/text_style_small_text_black"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
             android:text="@{title}"
             app:layout_constraintEnd_toStartOf="@id/right_icon"
             app:layout_constraintStart_toStartOf="parent" />
@@ -40,7 +41,6 @@
             android:id="@+id/right_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
