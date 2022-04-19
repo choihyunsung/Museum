@@ -54,7 +54,7 @@
 
         <TextView
             android:id="@+id/tv_pager_count"
-            style="@style/sText"
+            style="@style/text_style_tutorial_count_black"
             android:layout_width="25dp"
             android:layout_height="25dp"
             tools:text="1"
