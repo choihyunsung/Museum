@@ -1,16 +1,14 @@
 package kr.block.retrofitopenapi.feature.main
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.ActivityMainBinding
 import kr.block.retrofitopenapi.feature.common.activity.BaseActivity
-import kr.block.retrofitopenapi.feature.main.fragment.DrawerMenuFragment
+import kr.block.retrofitopenapi.feature.main.menu.fragment.DrawerMenuFragment
 import kr.block.retrofitopenapi.utils.DisplayUtils
-import timber.log.Timber
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {

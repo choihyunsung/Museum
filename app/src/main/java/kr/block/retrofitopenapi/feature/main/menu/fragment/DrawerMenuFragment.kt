@@ -1,4 +1,4 @@
-package kr.block.retrofitopenapi.feature.main.fragment
+package kr.block.retrofitopenapi.feature.main.menu.fragment
 
 import android.os.Bundle
 import android.view.View
