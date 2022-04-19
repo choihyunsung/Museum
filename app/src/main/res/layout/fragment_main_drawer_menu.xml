@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
+        android:overScrollMode="never"
         >
 
         <LinearLayout
@@ -24,12 +25,53 @@
 
             <include
                 layout="@layout/include_menu_content"
-                bind:rightIconRes="@{@drawable/ic_chevron_right_black_24dp}"
-                bind:title='@{"Sub content"}'
                 bind:isDiv="@{true}"
-                />
+                bind:rightIconRes="@{@drawable/ic_chevron_right_black_24dp}"
+                bind:title='@{"Sub content1"}' />
 
+            <include
+                layout="@layout/include_menu_content"
+                bind:isDiv="@{true}"
+                bind:rightIconRes="@{@drawable/ic_chevron_right_black_24dp}"
+                bind:title='@{"Sub content2"}' />
 
+            <include
+                layout="@layout/include_menu_content"
+                bind:isDiv="@{true}"
+                bind:rightIconRes="@{@drawable/ic_chevron_right_black_24dp}"
+                bind:title='@{"Sub content3"}' />
+
+            <include
+                layout="@layout/include_menu_sub_title"
+                bind:title='@{"Sub menu 2"}' />
+
+            <include
+                layout="@layout/include_menu_content"
+                bind:isDiv="@{true}"
+                bind:rightIconRes="@{@drawable/ic_chevron_right_black_24dp}"
+                bind:title='@{"Sub content1"}' />
+
+            <include
+                layout="@layout/include_menu_content"
+                bind:isDiv="@{true}"
+                bind:rightIconRes="@{@drawable/ic_chevron_right_black_24dp}"
+                bind:title='@{"Sub content2"}' />
+
+            <include
+                layout="@layout/include_menu_sub_title"
+                bind:title='@{"Sub menu 3"}' />
+
+            <include
+                layout="@layout/include_menu_content"
+                bind:isDiv="@{true}"
+                bind:rightIconRes="@{@drawable/ic_chevron_right_black_24dp}"
+                bind:title='@{"Sub content3"}' />
+
+            <include
+                layout="@layout/include_menu_content"
+                bind:isDiv="@{true}"
+                bind:rightIconRes="@{@drawable/ic_chevron_right_black_24dp}"
+                bind:title='@{"Sub content3"}' />
 
         </LinearLayout>
 
