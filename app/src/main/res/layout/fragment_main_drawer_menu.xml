@@ -4,10 +4,34 @@
 
     <data></data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rootView"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:fillViewport="true"
+        >
+
+        <LinearLayout
+            android:id="@+id/rootView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/include_menu_sub_title"
+                bind:title='@{"Sub menu 1"}' />
+
+            <include
+                layout="@layout/include_menu_content"
+                bind:rightIconRes="@{@drawable/ic_chevron_right_black_24dp}"
+                bind:title='@{"Sub content"}'
+                bind:isDiv="@{true}"
+                />
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </layout>
