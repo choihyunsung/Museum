@@ -41,4 +41,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             .replace(mBinder.containerDrawer.id, menuFragment)
             .commit()
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        with(mBinder.drawerLayout) {
+            if(isDrawerOpen(GravityCompat.END)) {
+               closeDrawer(GravityCompat.END)
+            }
+        }
+
+    }
 }
