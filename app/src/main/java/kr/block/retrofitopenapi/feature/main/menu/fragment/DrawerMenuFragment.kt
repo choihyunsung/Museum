@@ -1,5 +1,6 @@
 package kr.block.retrofitopenapi.feature.main.menu.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment
 import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.FragmentMainDrawerMenuBinding
 import kr.block.retrofitopenapi.feature.common.fragment.BaseFragment
+import kr.block.retrofitopenapi.feature.main.menu.activity.DefaultSetActivity
+import kr.block.retrofitopenapi.feature.main.menu.activity.ProfileActivity
 
 class DrawerMenuFragment :
     BaseFragment<FragmentMainDrawerMenuBinding>(R.layout.fragment_main_drawer_menu),
@@ -28,10 +31,20 @@ class DrawerMenuFragment :
         with(mBinder) {
             when (view) {
                 menuProfile.rootView -> {
-                    Toast.makeText(context, "프로필", Toast.LENGTH_LONG).show()
+                    startActivity(
+                        Intent(
+                            this@DrawerMenuFragment.requireContext(),
+                            ProfileActivity::class.java
+                        )
+                    )
                 }
                 menuDefaultSet.rootView -> {
-                    Toast.makeText(context, "기본세팅", Toast.LENGTH_LONG).show()
+                    startActivity(
+                        Intent(
+                            this@DrawerMenuFragment.requireContext(),
+                            DefaultSetActivity::class.java
+                        )
+                    )
                 }
             }
         }
