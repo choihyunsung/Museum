@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RetrofitOpenApi">
         <activity
+            android:name=".feature.main.menu.activity.DefaultSetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.main.menu.activity.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.intro.TutorialActivity"
             android:exported="false" />
         <activity
@@ -29,7 +35,7 @@
             tools:ignore="Instantiatable" />
         <activity
             android:name=".feature.main.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
