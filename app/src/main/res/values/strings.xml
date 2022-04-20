@@ -10,6 +10,9 @@
     <!--Drawer Menu Title-->
     <!--Title-->
 
+    <!--Text Label-->
+    <string name="name_label">이름 : </string>
+    <string name="email_label">email : </string>
     <!--Button-->
     <string name="prev_text">이전</string>
     <string name="next_text">다음</string>
