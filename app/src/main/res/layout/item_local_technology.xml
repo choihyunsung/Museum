@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.graphics.Color" />
+
+        <variable
+            name="data"
+            type="kr.block.retrofitopenapi.feature.main.localtech.adapter.item.LocalTechnologyData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/root_in_card"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="10dp"
+        app:cardCornerRadius="20dp"
+        bind:cardBackgroundStringColor="@{data.backColor}"
+        tools:cardBackgroundColor="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root_out_card"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:padding="30dp">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:src="@{data.icon}"
+                tools:background="@drawable/ic_launcher_background"
+                tools:src="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/text_style_small_text_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@{@string/technology_label + data.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/icon"
+                app:layout_constraintTop_toTopOf="@id/icon"
+                tools:text="기술명 : 커스텀뷰" />
+
+            <TextView
+                android:id="@+id/content"
+                style="@style/text_style_small_text_black"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLength="100"
+                android:maxLines="5"
+                android:text="@{@string/content_label + data.content}"
+                app:layout_constraintBottom_toBottomOf="@+id/icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/icon"
+                app:layout_constraintTop_toBottomOf="@id/name"
+                tools:text="내용 블루투스 어쩌구 저쩌구 " />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

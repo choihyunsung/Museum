@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.ActivityMainBinding
 import kr.block.retrofitopenapi.feature.common.activity.BaseActivity
+import kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment
 import kr.block.retrofitopenapi.feature.main.menu.fragment.DrawerMenuFragment
 import kr.block.retrofitopenapi.utils.DisplayUtils
 
@@ -15,6 +16,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         with(mBinder) {
             initDrawerLayout(DrawerMenuFragment.newInstance())
+            supportFragmentManager.beginTransaction()
+                .replace(containerLocalTechnology.id, LocalTechnologyFragment.newInstance())
+                .commit()
             mainTitle.ivMenuBtn.setOnClickListener(drawerMenuClickListener)
             drawerTitle.ivMenuBtn.setOnClickListener(drawerMenuClickListener)
         }

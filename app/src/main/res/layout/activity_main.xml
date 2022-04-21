@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:openDrawer="end">
-
+        <!-- 여기가 메인 루트 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/rootView"
             android:layout_width="match_parent"
@@ -30,20 +30,27 @@
                 bind:menuIcon="@{@drawable/baseline_view_headline_black_36}"
                 bind:title="@{@string/main_title_string}" />
             <!--TitleBar-->
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/container_local_technology"
+                android:name="kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                bind:layout_constraintTop_toBottomOf="@id/mainTitle"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <!-- 여기가 메인 루트 -->
+        <!-- 여기가 Drawer 메뉴 영역 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/root_drawer_menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="end"
-            >
+            android:layout_gravity="end">
+
             <include
                 android:id="@+id/drawer_title"
                 layout="@layout/include_menu_title_bar"
-                bind:title="@{@string/menu_text}"
-                bind:menuIcon ="@{@drawable/baseline_close_black_36}"
-                />
+                bind:menuIcon="@{@drawable/baseline_close_black_36}"
+                bind:title="@{@string/menu_text}" />
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/container_drawer"
@@ -51,10 +58,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="@color/white"
-                bind:layout_constraintTop_toBottomOf="@id/drawer_title"
                 bind:layout_constraintBottom_toBottomOf="parent"
-                />
+                bind:layout_constraintTop_toBottomOf="@id/drawer_title" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 여기가 Drawer 메뉴 영역 -->
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>
