@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import kr.block.retrofitopenapi.feature.common.dialog.LottieProgressDialog
 
 abstract class BaseActivity<BINDER : ViewDataBinding>(@LayoutRes val layoutRes: Int) :
     AppCompatActivity() {
@@ -13,6 +14,14 @@ abstract class BaseActivity<BINDER : ViewDataBinding>(@LayoutRes val layoutRes: 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinder = DataBindingUtil.setContentView(this, layoutRes)
+    }
+
+    fun showProgressDialog() {
+        LottieProgressDialog.getInstance(this).show()
+    }
+
+    fun dismissProgressDialog() {
+        LottieProgressDialog.getInstance(this).dismiss()
     }
 
     override fun onResume() {
@@ -26,7 +35,8 @@ abstract class BaseActivity<BINDER : ViewDataBinding>(@LayoutRes val layoutRes: 
     }
 
     override fun onBackPressed() {
-        if (backKeyGuard)
+        if (!backKeyGuard) {
             super.onBackPressed()
+        }
     }
 }
