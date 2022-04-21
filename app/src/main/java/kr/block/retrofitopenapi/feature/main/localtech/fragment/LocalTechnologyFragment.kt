@@ -2,9 +2,11 @@ package kr.block.retrofitopenapi.feature.main.localtech.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.PagerSnapHelper
 import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.FragmentLocalTechnologyBinding
 import kr.block.retrofitopenapi.feature.common.fragment.BaseFragment
+import kr.block.retrofitopenapi.feature.main.localtech.adapter.LocalTechnologyAdapter
 import kr.block.retrofitopenapi.feature.main.localtech.adapter.item.LocalTechnologyData
 
 class LocalTechnologyFragment :

@@ -34,7 +34,8 @@
                 android:id="@+id/container_local_technology"
                 android:name="kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="0dp"
+                bind:layout_constraintHeight_percent="0.3"
                 bind:layout_constraintTop_toBottomOf="@id/mainTitle"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>

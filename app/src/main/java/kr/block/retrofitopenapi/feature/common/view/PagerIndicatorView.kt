@@ -6,14 +6,9 @@ import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.core.view.get
-import androidx.core.view.setPadding
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import kr.block.retrofitopenapi.R
-import kr.block.retrofitopenapi.generated.callback.OnClickListener
 import kr.block.retrofitopenapi.utils.DisplayUtils
-import timber.log.Timber
 
 class PagerIndicatorView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null

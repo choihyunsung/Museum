@@ -9,6 +9,7 @@
         android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#E5E4E4"
         >
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_local_tech"
@@ -18,7 +19,6 @@
             android:orientation="horizontal"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:paddingHorizontal="50dp"
             android:clipToPadding="false"
             android:elevation="20dp"
             tools:listitem="@layout/item_local_technology"

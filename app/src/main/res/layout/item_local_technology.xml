@@ -15,7 +15,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/root_in_card"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:padding="20dp"
         android:layout_marginVertical="20dp"
         android:layout_marginHorizontal="10dp"
@@ -26,16 +26,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/root_out_card"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:padding="30dp">
+            android:layout_height="match_parent"
+            android:padding="20dp">
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 bind:src="@{data.icon}"
+                android:background="@color/black"
                 tools:background="@drawable/ic_launcher_background"
                 tools:src="@drawable/ic_launcher_foreground" />
 
@@ -44,11 +45,11 @@
                 style="@style/text_style_small_text_black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:text="@{@string/technology_label + data.name}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/icon"
-                app:layout_constraintTop_toTopOf="@id/icon"
+                app:layout_constraintEnd_toStartOf="@+id/icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="기술명 : 커스텀뷰" />
 
             <TextView
@@ -56,15 +57,16 @@
                 style="@style/text_style_small_text_black"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:ellipsize="end"
                 android:maxLength="100"
                 android:maxLines="5"
+                android:gravity="left"
+                android:layout_marginEnd="10dp"
                 android:text="@{@string/content_label + data.content}"
-                app:layout_constraintBottom_toBottomOf="@+id/icon"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/icon"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name"
                 tools:text="내용 블루투스 어쩌구 저쩌구 " />
 
