@@ -32,7 +32,8 @@ class LocalTechListActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        Toast.makeText(this,"Select Type : ${techType.name}",Toast.LENGTH_LONG).show()
+        with(mBinder) {
+            techType = this@LocalTechListActivity.techType
+        }
     }
 }

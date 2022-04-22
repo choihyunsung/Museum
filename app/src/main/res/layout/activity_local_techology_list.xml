@@ -2,16 +2,26 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".feature.main.localtech.activity.LocalTechListActivity"
-    >
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    tools:context=".feature.main.localtech.activity.LocalTechListActivity">
 
-    <data></data>
+    <data>
+        <variable
+            name="techType"
+            type="kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment.LocalTechType" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+
+        <include android:id="@+id/title"
+            layout="@layout/include_left_button_title_bar"
+            bind:title = "@{techType.name()}"
+            bind:leftBtn="@{@drawable/ic_chevron_left_black_24dp}"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
