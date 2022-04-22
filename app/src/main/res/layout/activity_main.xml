@@ -43,8 +43,7 @@
                     android:id="@+id/root_content_scroll"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:overScrollMode="never"
-                    >
+                    android:overScrollMode="never">
 
                     <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/container_local_technology"
@@ -53,6 +52,16 @@
                         android:layout_height="0dp"
                         bind:layout_constraintHeight_percent="0.4"
                         bind:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/container_network_technology"
+                        android:name="kr.block.retrofitopenapi.feature.main.networktech.fragment.NetworkTechnologyFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="10dp"
+                        bind:layout_constraintHeight_percent="0.5"
+                        bind:layout_constraintTop_toBottomOf="@id/container_local_technology" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.core.widget.NestedScrollView>
             <!--Content-->

@@ -8,11 +8,13 @@
         <variable
             name="title"
             type="String" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rootView"
-        style="@style/view_style_menu_title">
+        style="@style/view_style_menu_title"
+        >
 
         <TextView
             android:id="@+id/title"
