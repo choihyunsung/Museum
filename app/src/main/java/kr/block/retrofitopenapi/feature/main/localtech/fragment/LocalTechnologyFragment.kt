@@ -2,6 +2,7 @@ package kr.block.retrofitopenapi.feature.main.localtech.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.StringRes
 import androidx.recyclerview.widget.PagerSnapHelper
 import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.FragmentLocalTechnologyBinding
@@ -11,6 +12,16 @@ import kr.block.retrofitopenapi.feature.main.localtech.adapter.item.LocalTechnol
 
 class LocalTechnologyFragment :
     BaseFragment<FragmentLocalTechnologyBinding>(R.layout.fragment_local_technology) {
+
+    enum class LocalTechType(
+        @StringRes
+        stringRes: Int)
+    {
+        CustomView(R.string.custom_view_text), //커스텀뷰
+        Bluetooth(R.string.bluetooth_text), //블루투스
+        DataBase(R.string.database_text) //데이터 베이스
+    }
+
     companion object {
         fun newInstance(): LocalTechnologyFragment = LocalTechnologyFragment()
     }
@@ -28,19 +39,19 @@ class LocalTechnologyFragment :
     private fun createTechData(): List<LocalTechnologyData> {
         return listOf(
             LocalTechnologyData(
-                getString(R.string.custom_view_text),
+                LocalTechType.CustomView,
                 R.drawable.ic_view_in_ar_white_24dp,
                 "#FF708090",
                 "커스텀 뷰에 관련된 내용을 기입."
             ),
             LocalTechnologyData(
-                getString(R.string.database_text),
+                LocalTechType.DataBase,
                 R.drawable.ic_save_white_24dp,
                 "#FF708090",
                 "데이터 베이스에 관련된 내용을 기입."
             ),
             LocalTechnologyData(
-                getString(R.string.bluetooth_text),
+                LocalTechType.Bluetooth,
                 R.drawable.ic_cell_tower_white_24dp,
                 "#FF708090",
                 "블루투스에 관련된 내용을 기입."

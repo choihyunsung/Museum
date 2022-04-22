@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RetrofitOpenApi">
         <activity
+            android:name=".feature.main.localtech.activity.LocalTechListActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.main.menu.activity.DefaultSetActivity"
             android:exported="false" />
         <activity

@@ -1,10 +1,13 @@
 package kr.block.retrofitopenapi.feature.main.localtech.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.block.retrofitopenapi.databinding.ItemLocalTechnologyBinding
+import kr.block.retrofitopenapi.feature.main.localtech.activity.LocalTechListActivity
 import kr.block.retrofitopenapi.feature.main.localtech.adapter.item.LocalTechnologyData
+import kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment
 
 class LocalTechnologyAdapter(var list: List<LocalTechnologyData>) :
     RecyclerView.Adapter<LocalTechnologyAdapter.LocalTechnologyHolder>() {
@@ -20,8 +23,13 @@ class LocalTechnologyAdapter(var list: List<LocalTechnologyData>) :
     }
 
     override fun onBindViewHolder(holder: LocalTechnologyHolder, position: Int) {
-        holder.bind(list[position])
-        //TODO HSCHOE 여기선 Click리스너등을 달아주는 작업을 진행해야함.!
+        with(holder) {
+            bind(list[position])
+            mBinder.rootInCard.setOnClickListener {
+                LocalTechListActivity.createActivity(mBinder.root.context, mBinder.data!!.Techtype)
+            }
+        }
+
     }
 
     override fun getItemCount() = list.size
