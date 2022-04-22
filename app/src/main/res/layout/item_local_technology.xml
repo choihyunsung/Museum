@@ -20,8 +20,9 @@
         android:layout_marginVertical="20dp"
         android:layout_marginHorizontal="10dp"
         app:cardCornerRadius="20dp"
+        android:elevation="10dp"
         bind:cardBackgroundStringColor="@{data.backColor}"
-        tools:cardBackgroundColor="@color/white">
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/root_out_card"
@@ -35,8 +36,9 @@
                 android:layout_height="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:padding="10dp"
                 bind:src="@{data.icon}"
-                android:background="@color/black"
+                android:background="@drawable/menu_back_not_margin_on"
                 tools:background="@drawable/ic_launcher_background"
                 tools:src="@drawable/ic_launcher_foreground" />
 
@@ -46,11 +48,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="@{@string/technology_label + data.name}"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:background="@drawable/menu_back_not_margin_off"
+                android:text="@{data.name}"
                 app:layout_constraintEnd_toStartOf="@+id/icon"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="기술명 : 커스텀뷰" />
+                tools:text="커스텀뷰" />
 
             <TextView
                 android:id="@+id/content"
@@ -62,13 +67,16 @@
                 android:maxLength="100"
                 android:maxLines="5"
                 android:gravity="left"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:background="@drawable/menu_back_not_margin_off"
                 android:layout_marginEnd="10dp"
-                android:text="@{@string/content_label + data.content}"
+                android:text="@{data.content}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/icon"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name"
-                tools:text="내용 블루투스 어쩌구 저쩌구 " />
+                tools:text="블루투스 어쩌구 저쩌구 " />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

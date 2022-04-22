@@ -30,14 +30,32 @@
                 bind:menuIcon="@{@drawable/baseline_view_headline_black_36}"
                 bind:title="@{@string/main_title_string}" />
             <!--TitleBar-->
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/container_local_technology"
-                android:name="kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment"
+            <!--Content-->
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scroll_content"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                bind:layout_constraintHeight_percent="0.3"
-                bind:layout_constraintTop_toBottomOf="@id/mainTitle"
-                />
+                android:fillViewport="true"
+                bind:layout_constraintBottom_toBottomOf="parent"
+                bind:layout_constraintTop_toBottomOf="@id/mainTitle">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/root_content_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    >
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/container_local_technology"
+                        android:name="kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        bind:layout_constraintHeight_percent="0.4"
+                        bind:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+            <!--Content-->
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- 여기가 메인 루트 -->
         <!-- 여기가 Drawer 메뉴 영역 -->

@@ -8,6 +8,11 @@
     <string name="preferences_text">환경설정</string>
     <string name="default_text">기본 설정</string>
     <!--Drawer Menu Title-->
+    <!--CardTitle-->
+    <string name="custom_view_text">커스텀뷰</string>
+    <string name="database_text">데이터베이스</string>
+    <string name="bluetooth_text">블루투스</string>
+    <!--CardTitle-->
     <!--Title-->
 
     <!--Text Label-->
