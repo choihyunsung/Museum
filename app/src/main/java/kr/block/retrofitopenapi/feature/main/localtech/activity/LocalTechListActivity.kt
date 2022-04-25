@@ -3,7 +3,6 @@ package kr.block.retrofitopenapi.feature.main.localtech.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.ActivityLocalTechologyListBinding
 import kr.block.retrofitopenapi.feature.common.activity.BaseActivity

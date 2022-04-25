@@ -1,13 +1,11 @@
 package kr.block.retrofitopenapi.feature.main.localtech.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.block.retrofitopenapi.databinding.ItemLocalTechnologyBinding
 import kr.block.retrofitopenapi.feature.main.localtech.activity.LocalTechListActivity
 import kr.block.retrofitopenapi.feature.main.localtech.adapter.item.LocalTechnologyData
-import kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment
 
 class LocalTechnologyAdapter(var list: List<LocalTechnologyData>) :
     RecyclerView.Adapter<LocalTechnologyAdapter.LocalTechnologyHolder>() {
