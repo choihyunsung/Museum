@@ -3,6 +3,7 @@ package kr.block.retrofitopenapi.feature.main
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.GravityCompat
+import androidx.databinding.ktx.BuildConfig
 import androidx.fragment.app.Fragment
 import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.ActivityMainBinding

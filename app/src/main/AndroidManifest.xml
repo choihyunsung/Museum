@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="kr.block.retrofitopenapi">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".global.RoaApplication"
         android:allowBackup="true"
@@ -10,6 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.RetrofitOpenApi">
         <activity
             android:name=".feature.main.localtech.activity.LocalTechListActivity"
