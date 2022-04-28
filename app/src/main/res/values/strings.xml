@@ -13,6 +13,9 @@
     <string name="database_text">데이터베이스</string>
     <string name="bluetooth_text">블루투스</string>
     <!--CardTitle-->
+    <!--RestApiTitle-->
+    <string name="kofic_text">영화진흥위원회</string>
+    <!--RestApiTitle-->
     <!--main sub title-->
     <string name="network_rest_api_text">Network(REST API)</string>
     <string name="local_text">Local</string>

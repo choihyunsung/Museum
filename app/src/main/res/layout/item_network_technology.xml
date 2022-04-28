@@ -15,6 +15,7 @@
         android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_margin="10dp"
         android:background="@drawable/menu_back_not_margin_on"
         android:padding="10dp">
 

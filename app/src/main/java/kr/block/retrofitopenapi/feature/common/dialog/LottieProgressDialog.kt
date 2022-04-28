@@ -12,18 +12,6 @@ import kr.block.retrofitopenapi.databinding.DialogLottieProgressBinding
 class LottieProgressDialog(context: Activity) :
     BaseDialog<DialogLottieProgressBinding>(context, R.layout.dialog_lottie_progress) {
 
-    companion object {
-        @SuppressLint("StaticFieldLeak")
-        private var instance: LottieProgressDialog? = null
-
-        fun getInstance(context: Activity): LottieProgressDialog {
-            if (instance == null) {
-                instance = LottieProgressDialog(context)
-            }
-            return instance!!
-        }
-    }
-
     init {
         isCancelable = false
     }

@@ -3,14 +3,11 @@ package kr.block.retrofitopenapi.feature.main
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.GravityCompat
-import androidx.databinding.ktx.BuildConfig
 import androidx.fragment.app.Fragment
 import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.ActivityMainBinding
 import kr.block.retrofitopenapi.feature.common.activity.BaseActivity
-import kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment
 import kr.block.retrofitopenapi.feature.main.menu.fragment.DrawerMenuFragment
-import kr.block.retrofitopenapi.feature.main.networktech.fragment.NetworkTechnologyFragment
 import kr.block.retrofitopenapi.utils.DisplayUtils
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -45,8 +42,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun onBackPressed() {
         with(mBinder.drawerLayout) {
-            if(isDrawerOpen(GravityCompat.END)) {
-               closeDrawer(GravityCompat.END)
+            if (isDrawerOpen(GravityCompat.END)) {
+                closeDrawer(GravityCompat.END)
             } else {
                 super.onBackPressed()
             }

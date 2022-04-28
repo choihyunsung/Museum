@@ -15,7 +15,7 @@ class LocalTechnologyFragment :
 
     enum class LocalTechType(
         @StringRes
-        stringRes: Int)
+        val stringRes: Int)
     {
         CustomView(R.string.custom_view_text), //커스텀뷰
         Bluetooth(R.string.bluetooth_text), //블루투스

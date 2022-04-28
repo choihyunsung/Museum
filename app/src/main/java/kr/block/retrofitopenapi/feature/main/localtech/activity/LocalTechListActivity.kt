@@ -7,6 +7,7 @@ import kr.block.retrofitopenapi.R
 import kr.block.retrofitopenapi.databinding.ActivityLocalTechologyListBinding
 import kr.block.retrofitopenapi.feature.common.activity.BaseActivity
 import kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment
+import kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment.*
 
 class LocalTechListActivity :
     BaseActivity<ActivityLocalTechologyListBinding>(R.layout.activity_local_techology_list) {
@@ -15,7 +16,7 @@ class LocalTechListActivity :
         const val TECH_TYPE_KEY =
             "kr.block.retrofitopenapi.feature.main.localtech.activity.LocalTechListActivity.TECH_TYPE_KEY"
 
-        fun createActivity(context: Context, techType: LocalTechnologyFragment.LocalTechType) {
+        fun createActivity(context: Context, techType: LocalTechType) {
             val intent = Intent(context, LocalTechListActivity::class.java).also {
                 it.putExtra(TECH_TYPE_KEY, techType)
             }
@@ -23,10 +24,10 @@ class LocalTechListActivity :
         }
     }
 
-    private val techType: LocalTechnologyFragment.LocalTechType by lazy {
+    private val techType: LocalTechType by lazy {
         intent.getSerializableExtra(
             TECH_TYPE_KEY
-        ) as LocalTechnologyFragment.LocalTechType
+        ) as LocalTechType
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

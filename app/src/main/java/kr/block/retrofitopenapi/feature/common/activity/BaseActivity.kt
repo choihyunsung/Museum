@@ -11,17 +11,18 @@ abstract class BaseActivity<BINDER : ViewDataBinding>(@LayoutRes val layoutRes: 
     AppCompatActivity() {
     protected lateinit var mBinder: BINDER
     protected var backKeyGuard: Boolean = false
+    private val progressDialog by lazy { LottieProgressDialog(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinder = DataBindingUtil.setContentView(this, layoutRes)
     }
 
     fun showProgressDialog() {
-        LottieProgressDialog.getInstance(this).show()
+        progressDialog.show()
     }
 
     fun dismissProgressDialog() {
-        LottieProgressDialog.getInstance(this).dismiss()
+        progressDialog.dismiss()
     }
 
     override fun onResume() {

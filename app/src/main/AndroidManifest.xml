@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="kr.block.retrofitopenapi">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".global.RoaApplication"
@@ -12,8 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.RetrofitOpenApi">
+        android:theme="@style/Theme.RetrofitOpenApi"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".feature.main.networktech.activity.NetworkApiViewerActivity"
+            android:exported="false" />
         <activity
             android:name=".feature.main.localtech.activity.LocalTechListActivity"
             android:exported="false" />

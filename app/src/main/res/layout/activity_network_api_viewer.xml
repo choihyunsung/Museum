@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".feature.main.localtech.activity.LocalTechListActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <!--TODO 나중에 Android ViewModel(context를 가지고 있을테니?로 변경시 제거  -->
@@ -12,20 +10,21 @@
             type="android.content.Context" />
 
         <variable
-            name="techType"
-            type="kr.block.retrofitopenapi.feature.main.localtech.fragment.LocalTechnologyFragment.LocalTechType" />
+            name="apiType"
+            type="kr.block.retrofitopenapi.feature.main.networktech.fragment.NetworkTechnologyFragment.RestApiType" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rootView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".feature.main.networktech.activity.NetworkApiViewerActivity">
 
         <include
             android:id="@+id/title"
             layout="@layout/include_left_button_title_bar"
             bind:leftBtn="@{@drawable/ic_chevron_left_black_24dp}"
-            bind:title="@{context.getString(techType.stringRes)}" />
+            bind:title="@{context.getString(apiType.stringRes)}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
