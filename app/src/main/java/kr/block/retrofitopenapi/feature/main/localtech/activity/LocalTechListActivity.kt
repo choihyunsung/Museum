@@ -33,6 +33,7 @@ class LocalTechListActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         with(mBinder) {
+            context = this@LocalTechListActivity
             techType = this@LocalTechListActivity.techType
         }
     }
